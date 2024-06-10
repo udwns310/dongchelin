@@ -10,7 +10,8 @@ import Toolbar from './components/Toolbar.js';
 import { Routes, Route, Link } from 'react-router-dom';
 import FixedBottomNavigation from './components/BottomNavi.js';
 import Home from './home/home.js';
-
+import SignIn from './components/SignIn.js';
+import SignUp from './components/SignUp.js';
 function App() {
     return (
         <div className="App">
@@ -21,6 +22,24 @@ function App() {
                         <div>
                             {/* <Toolbar />  */}
                             <Home />
+                            <FixedBottomNavigation />
+                        </div>
+                    }
+                />
+                <Route
+                    path="/login"
+                    element={
+                        <div>
+                            <SignIn />
+                            <FixedBottomNavigation />
+                        </div>
+                    }
+                />
+                <Route
+                    path="/register"
+                    element={
+                        <div>
+                            <SignUp />
                             <FixedBottomNavigation />
                         </div>
                     }
