@@ -28,15 +28,16 @@ export default function SignIn() {
 
     const onhandlePost = async (data) => {
         const { email, password } = data;
-        const postData = { email, password };
+        const postData = { email: data.email, password: data.password };
         await axios
-            .post('/auth/signin', postData)
+            .post('https://dongchelin.dev-ssu.com/auth/signin', postData)
             .then(function (response) {
                 console.log(response, '성공');
                 navigate('/');
             })
             .catch(function (err) {
                 console.log(err);
+                console.log(postData);
                 setloginError('로그인에 실패하였습니다. 다시한번 확인해 주세요.');
             });
     };
@@ -58,7 +59,7 @@ export default function SignIn() {
         else setEmailError('');
 
         // 비밀번호 유효성 체크
-        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
+        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
         if (!passwordRegex.test(password)) setPasswordState('숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!');
         else setPasswordState('');
 

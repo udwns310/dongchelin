@@ -19,42 +19,68 @@ export default function ActionAreaCard() {
         <div>
             <h2>메뉴 추천</h2>
             <div style={{ display: 'flex' }}>
-                <Card>
+                <Card style={{ width: '33%'}}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={suyuk} alt="chasu" />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 {title[0]}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
+                                따뜻한 수육과 함께 밥이 나오는 정식입니다.
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card>
+                <Card style={{ width: '33%'}}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={chasu} alt="green iguana" />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 {title[1]}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                                 across all continents except Antarctica
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card>
+                <Card style={{ width: '34%'}}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={buldak} alt="green iguana" />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 {title[2]}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                                 across all continents except Antarctica
                             </Typography>
@@ -63,42 +89,69 @@ export default function ActionAreaCard() {
                 </Card>
             </div>
             <div style={{ display: 'flex' }}>
-                <Card>
+                <Card style={{ width: '33%'}}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={cheese} alt="green iguana" />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 {title[3]}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                                 across all continents except Antarctica
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card>
+                <Card style={{ width: '33%'}}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={samgyup} alt="green iguana" />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 {title[4]}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                                 across all continents except Antarctica
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card>
+                <Card style={{ width: '34%'}}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={jeyuk} alt="green iguana" />
                         <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography
+                                gutterBottom
+                                variant="h5"
+                                component="div"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 {title[5]}
                             </Typography>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                                style={{ fontFamily: 'GangwonEdu_OTFBoldA' }}
+                            >
                                 Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
                                 across all continents except Antarctica
                             </Typography>

@@ -1,17 +1,12 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Toolbar from './components/Toolbar.js';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import FixedBottomNavigation from './components/BottomNavi.js';
 import Home from './home/home.js';
 import SignIn from './components/SignIn.js';
 import SignUp from './components/SignUp.js';
+import Review from './components/Review.js';
+
 function App() {
     return (
         <div className="App">
@@ -41,6 +36,14 @@ function App() {
                         <div>
                             <SignUp />
                             <FixedBottomNavigation />
+                        </div>
+                    }
+                />
+                <Route
+                    path="/review"
+                    element={
+                        <div>
+                            <Review />
                         </div>
                     }
                 />
