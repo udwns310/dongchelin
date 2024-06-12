@@ -44,6 +44,7 @@ function App() {
                     element={
                         <div>
                             <Review />
+                            <FixedBottomNavigation />
                         </div>
                     }
                 />

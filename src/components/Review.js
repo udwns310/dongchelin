@@ -75,8 +75,9 @@ function Review() {
                     cancelText="취소"
                 >
                     <Rating
-                        name="simple-controlled"
+                        name="half-rating"
                         value={value}
+                        precision={0.5}
                         onChange={(event, newValue) => {
                             setValue(newValue);
                         }}

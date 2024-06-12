@@ -10,3 +10,32 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+h2{
+    color: #333;
+    border-bottom: 4px solid #a79600;
+    padding-bottom: 15px;
+    position: relative;
+  }
+  
+  h2:before{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 30px;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: #a79600 transparent transparent #a79600;
+  }
+  
+  h2:after{
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 34px;
+    bottom: -20px;
+    border: 15px solid;
+    border-color: #fff transparent transparent #fff;
+  }

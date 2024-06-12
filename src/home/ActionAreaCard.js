@@ -12,14 +12,18 @@ import samgyup from './image/samgyup.jpg';
 import jeyuk from './image/jeyuk.jpg';
 
 var title = ['수육정식', '차슈덮밥', '돌솥치즈불닭덮밥', '치즈돈까스', '삼겹살비빔밥', '제육불고기덮밥'];
-var desc = [];
 
 export default function ActionAreaCard() {
     return (
         <div>
-            <h2>메뉴 추천</h2>
+            <h2
+                className="homeheader"
+                style={{ padding: '10px', textAlign: 'left', display: 'inline-block', zIndex: '10' }}
+            >
+                메뉴 추천
+            </h2>
             <div style={{ display: 'flex' }}>
-                <Card style={{ width: '33%'}}>
+                <Card style={{ width: '33%' }}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={suyuk} alt="chasu" />
                         <CardContent>
@@ -41,7 +45,7 @@ export default function ActionAreaCard() {
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card style={{ width: '33%'}}>
+                <Card style={{ width: '33%' }}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={chasu} alt="green iguana" />
                         <CardContent>
@@ -64,7 +68,7 @@ export default function ActionAreaCard() {
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card style={{ width: '34%'}}>
+                <Card style={{ width: '34%' }}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={buldak} alt="green iguana" />
                         <CardContent>
@@ -89,7 +93,7 @@ export default function ActionAreaCard() {
                 </Card>
             </div>
             <div style={{ display: 'flex' }}>
-                <Card style={{ width: '33%'}}>
+                <Card style={{ width: '33%' }}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={cheese} alt="green iguana" />
                         <CardContent>
@@ -112,7 +116,7 @@ export default function ActionAreaCard() {
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card style={{ width: '33%'}}>
+                <Card style={{ width: '33%' }}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={samgyup} alt="green iguana" />
                         <CardContent>
@@ -135,7 +139,7 @@ export default function ActionAreaCard() {
                         </CardContent>
                     </CardActionArea>
                 </Card>
-                <Card style={{ width: '34%'}}>
+                <Card style={{ width: '34%' }}>
                     <CardActionArea>
                         <CardMedia component="img" height="140" image={jeyuk} alt="green iguana" />
                         <CardContent>

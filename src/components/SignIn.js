@@ -28,7 +28,7 @@ export default function SignIn() {
 
     const onhandlePost = async (data) => {
         const { email, password } = data;
-        const postData = { email: data.email, password: data.password };
+        const postData = { email, password };
         await axios
             .post('https://dongchelin.dev-ssu.com/auth/signin', postData)
             .then(function (response) {

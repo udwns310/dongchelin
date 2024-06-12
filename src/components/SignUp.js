@@ -31,11 +31,11 @@ export default function SignUp() {
     };
 
     const onhandlePost = async (data) => {
-        const { email, name, password } = data;
-        const postData = { email, name, password };
+        const { email, name, nickname, password } = data;
+        const postData = { email, name, nickname, password };
         // post
         await axios
-            .post('/auth/signup', postData)
+            .post('https://dongchelin.dev-ssu.com/auth/signup', postData)
             .then(function (response) {
                 console.log(response, '성공');
                 navigate('/login');
@@ -52,10 +52,10 @@ export default function SignUp() {
         const joinData = {
             email: data.get('email'),
             name: data.get('name'),
+            nickname: data.get('nickname'),
             password: data.get('password'),
-            rePassword: data.get('rePassword'),
         };
-        const { email, name, password, rePassword } = joinData;
+        const { email, name, nickname, password } = joinData;
 
         // 이메일 유효성 체크
         const emailRegex =
@@ -64,13 +64,9 @@ export default function SignUp() {
         else setEmailError('');
 
         // 비밀번호 유효성 체크
-        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-        if (!passwordRegex.test(password)) setPasswordState('숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!');
+        const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+        if (!passwordRegex.test(password)) setPasswordState('숫자+영문자 조합으로 8자리 이상 입력해주세요!');
         else setPasswordState('');
-
-        // 비밀번호 같은지 체크
-        if (password !== rePassword) setPasswordError('비밀번호가 일치하지 않습니다.');
-        else setPasswordError('');
 
         // 이름 유효성 검사
         const nameRegex = /^[가-힣a-zA-Z]+$/;
@@ -80,13 +76,7 @@ export default function SignUp() {
         // 회원가입 동의 체크
         if (!checked) alert('회원가입 약관에 동의해주세요.');
 
-        if (
-            emailRegex.test(email) &&
-            passwordRegex.test(password) &&
-            password === rePassword &&
-            nameRegex.test(name) &&
-            checked
-        ) {
+        if (emailRegex.test(email) && passwordRegex.test(password) && nameRegex.test(name) && checked) {
             onhandlePost(joinData);
         }
     };
@@ -130,23 +120,11 @@ export default function SignUp() {
                                         type="password"
                                         id="password"
                                         name="password"
-                                        label="비밀번호 (숫자+영문자+특수문자 8자리 이상)"
+                                        label="비밀번호 (숫자+영문자 8자리 이상)"
                                         error={passwordState !== '' || false}
                                     />
                                 </Grid>
                                 <FormHelperText>{passwordState}</FormHelperText>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        required
-                                        fullWidth
-                                        type="password"
-                                        id="rePassword"
-                                        name="rePassword"
-                                        label="비밀번호 재입력"
-                                        error={passwordError !== '' || false}
-                                    />
-                                </Grid>
-                                <FormHelperText>{passwordError}</FormHelperText>
                                 <Grid item xs={12}>
                                     <TextField
                                         required
@@ -158,6 +136,10 @@ export default function SignUp() {
                                     />
                                 </Grid>
                                 <FormHelperText>{nameError}</FormHelperText>
+                                <Grid item xs={12}>
+                                    <TextField required fullWidth id="nickname" name="nickname" label="별명" />
+                                </Grid>
+
                                 <Grid item xs={12}>
                                     <FormControlLabel
                                         control={<Checkbox onChange={handleAgree} color="primary" />}
