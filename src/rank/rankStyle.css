@@ -1,0 +1,51 @@
+/* 메뉴 랭킹 페이지 목록 */
+.rankCtg {
+    padding: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* 식당 종류, 음식 종류 */
+.restau,
+.kinds {
+    padding: 10px;
+    font-size: 20px;
+}
+
+/*랭킹 순위 분류 목록*/
+.ctgNum {
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* 등수 숫자 */
+.numR {
+    padding: 10px;
+}
+
+/* 랭킹 페이지 제목 */
+#titleR {
+    padding: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* 첫 번째 컬럼 태그 */
+#c1R {
+    border-right: solid black 1px;
+}
+
+/* 첫 번째 로우 태그 */
+#rowR {
+    border-top: solid black 1px;
+}
+
+/* 좌상단 식당 구분 컬럼 div */
+#resR {
+    padding-bottom: 10px;
+}
+
+/* 좌하단 종류 구분 div */
+#kindR {
+    border-top: solid black 1px;
+}
