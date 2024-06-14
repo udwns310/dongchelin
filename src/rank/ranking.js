@@ -2,9 +2,24 @@ import * as React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useState, useEffect } from "react";
+import { useAsyncError } from "react-router-dom";
 import "./style.css";
 
 function Rank() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://dongchelin.dev-ssu.com/")
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <Container>
       <div id="titleR">메뉴 랭킹</div>
@@ -33,66 +48,14 @@ function Rank() {
             <Col className="ctgNum">식당</Col>
             <Col className="ctgNum">별점</Col>
           </Row>
-          <Row>
-            <Col className="numR">1</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">2</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">3</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">4</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">5</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">6</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">7</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">8</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">9</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
-          <Row>
-            <Col className="numR">10</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-            <Col>.</Col>
-          </Row>
+          {data.map((item, index) => (
+            <Row key={index}>
+              <Col className="numR">{index + 1}</Col>
+              <Col>{item.menu_id}</Col> {/*메뉴명*/}
+              <Col>{item.restaurant}</Col> {/*식당*/}
+              <Col>{item.rate}</Col> {/*별점*/}
+            </Row>
+          ))}
         </Col>
       </Row>
     </Container>
