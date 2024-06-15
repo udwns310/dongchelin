@@ -24,7 +24,12 @@ const cardStyle = {
 function Review() {
     const { TextArea } = Input;
     const [open, setOpen] = useState(false);
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState(0); //별점 value
+    const WriteReview = {};
+    const badgeStyle = ['success', 'danger', 'warning'];
+    const onReviewChange = (e) => {
+        console.log(e.target.value);
+    };
     return (
         <div>
             <Carousel autoplay>
@@ -44,7 +49,7 @@ function Review() {
                 <h1 style={{ display: 'inline', fontSize: '50px', padding: '15px' }}>차슈덮밥</h1>
                 <p style={{ display: 'inline', fontSize: '50px', color: 'orange', paddingRight: '15px' }}>4.5</p>
                 <p style={{ fontSize: '20px' }}>부드러운 차슈와 간장소스의 만남</p>
-                <Badge bg="success" style={{ fontSize: '20px' }}>
+                <Badge bg={badgeStyle[0]} style={{ fontSize: '20px' }}>
                     수덕전
                 </Badge>
             </div>
@@ -68,7 +73,10 @@ function Review() {
                     title="리뷰 작성"
                     centered
                     open={open}
-                    onOk={() => setOpen(false)}
+                    onOk={() => {
+                        setOpen(false);
+                        console.log('리뷰 달아보자');
+                    }}
                     onCancel={() => setOpen(false)}
                     width={1000}
                     okText="확인"
@@ -82,7 +90,7 @@ function Review() {
                             setValue(newValue);
                         }}
                     />
-                    <TextArea rows={4} />
+                    <TextArea rows={4} onChange={onReviewChange} />
                 </Modal>
             </div>
             <ReviewCard />

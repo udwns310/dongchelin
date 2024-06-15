@@ -20,12 +20,16 @@ export default function FixedBottomNavigation() {
     const navigate = useNavigate();
 
     const navigateToLogin = () => {
-        navigate("/login");
+        if (JSON.stringify(localStorage.getItem('loginToken')).length > 0) {
+            navigate('/');
+        } else {
+            navigate('/login');
+        }
     };
     const navigateToHome = () => {
-        navigate("/");
+        navigate('/');
     };
-    
+
     return (
         <Box sx={{ pb: 7 }} ref={ref}>
             <CssBaseline />
@@ -37,11 +41,13 @@ export default function FixedBottomNavigation() {
                         setValue(newValue);
                     }}
                 > 라벨 표시되는 바텀바*/}
-                <BottomNavigation value={value} onChange={handleChange}> {/*라벨 표시 안되는 바텀바*/} 
-                    <BottomNavigationAction  onClick={navigateToHome} label="홈" icon={<HomeRoundedIcon />} />
+                <BottomNavigation value={value} onChange={handleChange}>
+                    {' '}
+                    {/*라벨 표시 안되는 바텀바*/}
+                    <BottomNavigationAction onClick={navigateToHome} label="홈" icon={<HomeRoundedIcon />} />
                     <BottomNavigationAction label="식당별" icon={<FoodBankRoundedIcon />} />
                     <BottomNavigationAction label="메뉴별" icon={<RestaurantMenuRoundedIcon />} />
-                    <BottomNavigationAction onClick={navigateToLogin}label="" icon={<AccountCircleRoundedIcon />} />
+                    <BottomNavigationAction onClick={navigateToLogin} label="" icon={<AccountCircleRoundedIcon />} />
                 </BottomNavigation>
             </Paper>
         </Box>
