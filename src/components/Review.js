@@ -66,7 +66,16 @@ function Review() {
                 <Button variant="warning" size="lg">
                     즐겨찾기
                 </Button>{' '}
-                <Button variant="warning" size="lg" onClick={() => setOpen(true)}>
+                <Button
+                    variant="warning"
+                    size="lg"
+                    onClick={() => {
+                        if (localStorage.getItem('loginToken')) {
+                            console.log(localStorage.getItem('loginToken'));
+                            setOpen(true);
+                        }
+                    }}
+                >
                     리뷰쓰기
                 </Button>
                 <Modal
