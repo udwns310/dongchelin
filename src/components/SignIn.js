@@ -33,7 +33,11 @@ export default function SignIn() {
             .post('https://dongchelin.dev-ssu.com/auth/signin', postData)
             .then(function (response) {
                 console.log(response, '성공');
-                navigate('/');
+                console.log(response.data.accessToken);
+                if (response.data.accessToken) {
+                    localStorage.setItem('loginToken', response.data.accessToken);
+                    navigate('/');
+                }
             })
             .catch(function (err) {
                 console.log(err);
