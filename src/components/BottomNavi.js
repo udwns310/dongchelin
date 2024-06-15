@@ -20,7 +20,7 @@ export default function FixedBottomNavigation() {
     const navigate = useNavigate();
 
     const navigateToLogin = () => {
-        if (JSON.stringify(localStorage.getItem('loginToken')).length > 0) {
+        if (localStorage.getItem('loginToken')) {
             navigate('/');
         } else {
             navigate('/login');

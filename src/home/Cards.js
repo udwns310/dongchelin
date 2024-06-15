@@ -34,6 +34,13 @@ function Cards() {
     if (menus.suduk) {
         return (
             <div>
+                <button
+                    onClick={() => {
+                        localStorage.removeItem('loginToken');
+                    }}
+                >
+                    토큰 없애기{' '}
+                </button>
                 <div>
                     <h2 style={{ padding: '10px', textAlign: 'left', display: 'inline-block' }}>학식 정보</h2>
                     {/*수덕전*/}
