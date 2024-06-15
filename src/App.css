@@ -1,38 +1,130 @@
+* {
+    font-family: 'GangwonEdu_OTFBoldA';
+}
 .App {
-  text-align: center;
+    text-align: center;
+}
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.parent {
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    overflow: hidden;
+}
+
+.first {
+    border: 1px solid red;
+    flex: 1;
+    width: 33%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.second {
+    border: 1px solid green;
+    flex: 1;
+    margin: 0px 5%;
+    width: 33%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.third {
+    border: 1px solid blue;
+    flex: 1;
+    width: 33%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+/* 메뉴 랭킹 페이지 목록 */
+.rankCtg {
+    padding: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* 식당 종류, 음식 종류 */
+.restau,
+.categorys {
+    padding: 10px;
+    font-size: 20px;
+}
+
+/*랭킹 순위 분류 목록*/
+.ctgNum {
+    padding: 10px;
+    font-weight: bold;
+}
+
+/* 등수 숫자 */
+.numR {
+    padding: 10px;
+}
+
+/* 랭킹 페이지 제목 */
+#titleR {
+    padding: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* 첫 번째 컬럼 태그 */
+#c1R {
+    border-right: solid black 1px;
+}
+
+/* 첫 번째 로우 태그 */
+#rowR {
+    border-top: solid black 1px;
+}
+
+/* 좌상단 식당 구분 컬럼 div */
+#resR {
+    padding-bottom: 10px;
+}
+
+/* 좌하단 종류 구분 div */
+#kindR {
+    border-top: solid black 1px;
 }
