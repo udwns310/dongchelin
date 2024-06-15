@@ -48,7 +48,7 @@ function Review() {
                 <Image src="img/best3.png" style={{ width: '80px', height: '80px' }} />
                 <h1 style={{ display: 'inline', fontSize: '50px', padding: '15px' }}>차슈덮밥</h1>
                 <p style={{ display: 'inline', fontSize: '50px', color: 'orange', paddingRight: '15px' }}>4.5</p>
-                <p style={{ fontSize: '20px' }}>부드러운 차슈와 간장소스의 만남</p>
+                <p></p>
                 <Badge bg={badgeStyle[0]} style={{ fontSize: '20px' }}>
                     수덕전
                 </Badge>
@@ -56,7 +56,7 @@ function Review() {
             <hr />
 
             <div>
-                <h2 style={{ float: 'left' }}>메뉴 평가</h2>
+                <h3 style={{ float: 'left' }}>메뉴 평가</h3>
             </div>
 
             <div className="mb-2" style={{ float: 'right' }}>
