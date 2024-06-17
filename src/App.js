@@ -5,7 +5,7 @@ import FixedBottomNavigation from './components/BottomNavi.js';
 import Home from './home/home.js';
 import SignIn from './components/SignIn.js';
 import SignUp from './components/SignUp.js';
-import Review from './components/Review.js';
+import Review from './review/Review.js';
 
 function App() {
     return (
@@ -15,7 +15,6 @@ function App() {
                     path="/"
                     element={
                         <div>
-                            {/* <Toolbar />  */}
                             <Home />
                             <FixedBottomNavigation />
                         </div>
