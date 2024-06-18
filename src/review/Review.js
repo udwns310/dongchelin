@@ -5,28 +5,14 @@ import Rating from "@mui/material/Rating";
 import ReviewCard from "../components/ReviewCard";
 import { message } from "antd";
 import ReviewHeader from "./ReviewHeader";
-
-const contentStyle = {
-  height: "300px",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79",
-  width: "33.3%",
-  display: "inline",
-};
-const cardStyle = {
-  width: "100%",
-  textAlign: "left",
-  height: "20vh",
-};
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 function Review() {
   const { TextArea } = Input;
   const [open, setOpen] = useState(false);
   const [value, setValue] = React.useState(0); //별점 value
-  const WriteReview = {};
-  const badgeStyle = ["success", "danger", "warning"];
   const onReviewChange = (e) => {
     console.log(e.target.value);
   };
@@ -50,10 +36,32 @@ function Review() {
       fail();
     }
   };
+  const location = useLocation();
+  const food_id = location.state.id;
+  const food_img = location.state.food_img;
+  const avgRate = location.state.avgRate;
+  const [getData, setgetData] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`https://dongchelin.dev-ssu.com/menu/detail/${food_id}`)
+      .then(function (response) {
+        console.log(response, "성공");
+        setgetData(response.data);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
       {contextHolder}
-      <ReviewHeader />
+      <ReviewHeader
+        food_id={food_id}
+        food_img={food_img}
+        avgRate={avgRate}
+        title={getData.name}
+        restaurant={getData.restaurant}
+      />
 
       <div>
         <h3 style={{ float: "left" }}>메뉴 평가</h3>
@@ -88,7 +96,7 @@ function Review() {
           />
         </Modal>
       </div>
-      <ReviewCard />
+      <ReviewCard reviews={getData.reviews}  />
     </div>
   );
 }
