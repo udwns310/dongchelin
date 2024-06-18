@@ -6,6 +6,8 @@ import ReviewCard from "../components/ReviewCard";
 import { message } from "antd";
 import ReviewHeader from "./ReviewHeader";
 import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios";
 
 function Review() {
   const { TextArea } = Input;
@@ -38,10 +40,28 @@ function Review() {
   const food_id = location.state.id;
   const food_img = location.state.food_img;
   const avgRate = location.state.avgRate;
+  const [getData, setgetData] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`https://dongchelin.dev-ssu.com/menu/detail/${food_id}`)
+      .then(function (response) {
+        console.log(response, "성공");
+        setgetData(response.data);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
       {contextHolder}
-      <ReviewHeader food_id={food_id} food_img={food_img} avgRate={avgRate} />
+      <ReviewHeader
+        food_id={food_id}
+        food_img={food_img}
+        avgRate={avgRate}
+        title={getData.name}
+        restaurant={getData.restaurant}
+      />
 
       <div>
         <h3 style={{ float: "left" }}>메뉴 평가</h3>
@@ -76,7 +96,7 @@ function Review() {
           />
         </Modal>
       </div>
-      <ReviewCard food_id={food_id} />
+      <ReviewCard reviews={getData.reviews}  />
     </div>
   );
 }

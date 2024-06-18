@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { Card, Col, Row } from "antd";
+import Rating from "@mui/material/Rating";
 
 const cardStyle = {
   width: "100%",
@@ -10,81 +9,28 @@ const cardStyle = {
 };
 
 function ReviewCard(props) {
-  const food_id = props.food_id;
-  const [getData, setgetData] = useState([]);
+  const reviews = props.reviews;
 
-  useEffect(() => {
-    axios
-      .get(`https://dongchelin.dev-ssu.com/menu/detail/${food_id}`)
-      .then(function (response) {
-        console.log(response, "성공");
-        setgetData(response.data);
-        
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-  }, []);
-  if (getData.reviews) {
+  if (reviews) {
     return (
       <div>
         <Row gutter={16} style={cardStyle}>
-          <Col span={8}>
-            <Card
-              title={getData.reviews[0].user.nickname}
-              bordered={true}
-              style={{ border: "1px solid grey" }}
-            >
-              {getData.reviews[0].comment}
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card
-              title={getData.reviews[0].user.nickname}
-              bordered={true}
-              style={{ border: "1px solid grey" }}
-            >
-              {getData.reviews[0].comment}
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card
-              title={getData.reviews[0].user.nickname}
-              bordered={true}
-              style={{ border: "1px solid grey" }}
-            >
-              {getData.reviews[0].comment}
-            </Card>
-          </Col>
-        </Row>
-        <Row gutter={16} style={cardStyle}>
-          <Col span={8}>
-            <Card
-              title={getData.reviews[0].user.nickname}
-              bordered={true}
-              style={{ border: "1px solid grey" }}
-            >
-              {getData.reviews[0].comment}
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card
-              title={getData.reviews[0].user.nickname}
-              bordered={true}
-              style={{ border: "1px solid grey" }}
-            >
-              {getData.reviews[0].comment}
-            </Card>
-          </Col>
-          <Col span={8}>
-            <Card
-              title={getData.reviews[0].user.nickname}
-              bordered={true}
-              style={{ border: "1px solid grey" }}
-            >
-              {getData.reviews[0].comment}
-            </Card>
-          </Col>
+          {Array.from({
+            length: 6,
+          }).map((_, i) => (
+            <Col span={8}>
+              <Card
+                title={reviews[0].user.nickname}
+                extra={
+                  <Rating name="read-only" value={reviews[0].rate} readOnly />
+                }
+                bordered={true}
+                style={{ border: "1px solid grey" }}
+              >
+                {reviews[0].comment}
+              </Card>
+            </Col>
+          ))}
         </Row>
       </div>
     );

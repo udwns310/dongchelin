@@ -2,8 +2,7 @@ import React from "react";
 import Image from "react-bootstrap/Image";
 import Badge from "react-bootstrap/Badge";
 import { Carousel } from "antd";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import Rating from "@mui/material/Rating";
 
 const contentStyle = {
@@ -22,19 +21,8 @@ function ReviewHeader(props) {
   const food_id = props.food_id;
   const food_img = props.food_img;
   const avgRate = props.avgRate;
-  const [getData, setgetData] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`https://dongchelin.dev-ssu.com/menu/detail/${food_id}`)
-      .then(function (response) {
-        console.log(response, "성공");
-        setgetData(response.data);
-      })
-      .catch(function (err) {
-        console.log(err);
-      });
-  }, []);
+  const title = props.title;
+  const restaurant = props.restaurant;
   return (
     <div>
       <Carousel autoplay>
@@ -70,7 +58,7 @@ function ReviewHeader(props) {
       <div>
         <Image src="img/best3.png" style={{ width: "50px", height: "50px" }} />
         <h1 style={{ display: "inline", fontSize: "50px", padding: "15px" }}>
-          {getData.name}
+          {title}
         </h1>
         <p
           style={{
@@ -90,8 +78,8 @@ function ReviewHeader(props) {
   );
 
   function BadgeName() {
-    var restaurant = getData.restaurant;
-    switch (restaurant) {
+    var name = restaurant;
+    switch (name) {
       case "suduk":
         setbadgeStyle("success");
         return "수덕전";
