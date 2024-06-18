@@ -2,6 +2,9 @@ import React from "react";
 import Image from "react-bootstrap/Image";
 import Badge from "react-bootstrap/Badge";
 import { Carousel } from "antd";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Rating from "@mui/material/Rating";
 
 const contentStyle = {
   height: "300px",
@@ -13,44 +16,95 @@ const contentStyle = {
   display: "inline",
 };
 
-function ReviewHeader() {
-  const badgeStyle = ["success", "danger", "warning"];
+function ReviewHeader(props) {
+  const [badgeStyle, setbadgeStyle] = useState("");
+
+  const food_id = props.food_id;
+  const food_img = props.food_img;
+  const avgRate = props.avgRate;
+  const [getData, setgetData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`https://dongchelin.dev-ssu.com/menu/detail/${food_id}`)
+      .then(function (response) {
+        console.log(response, "성공");
+        setgetData(response.data);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }, []);
   return (
     <div>
       <Carousel autoplay>
         <div>
-          <Image src="img/국밥.jpg" style={contentStyle} />
-          <Image src="img/국밥.jpg" style={contentStyle} />
-          <Image src="img/국밥.jpg" style={contentStyle} />
+          <Image
+            src={process.env.PUBLIC_URL + "/img/" + food_img + ".jpg"}
+            style={contentStyle}
+          />
+          <Image
+            src={process.env.PUBLIC_URL + "/img/" + food_img + ".jpg"}
+            style={contentStyle}
+          />
+          <Image
+            src={process.env.PUBLIC_URL + "/img/" + food_img + ".jpg"}
+            style={contentStyle}
+          />
         </div>
         <div>
-          <Image src="img/라면.jpg" style={contentStyle} />
-          <Image src="img/라면.jpg" style={contentStyle} />
-          <Image src="img/라면.jpg" style={contentStyle} />
+          <Image
+            src={process.env.PUBLIC_URL + "/img/" + food_img + ".jpg"}
+            style={contentStyle}
+          />
+          <Image
+            src={process.env.PUBLIC_URL + "/img/" + food_img + ".jpg"}
+            style={contentStyle}
+          />
+          <Image
+            src={process.env.PUBLIC_URL + "/img/" + food_img + ".jpg"}
+            style={contentStyle}
+          />
         </div>
       </Carousel>
       <div>
-        <Image src="img/best3.png" style={{ width: "80px", height: "80px" }} />
+        <Image src="img/best3.png" style={{ width: "50px", height: "50px" }} />
         <h1 style={{ display: "inline", fontSize: "50px", padding: "15px" }}>
-          차슈덮밥
+          {getData.name}
         </h1>
         <p
           style={{
-            display: "inline",
+            display: "block",
             fontSize: "50px",
             color: "orange",
-            paddingRight: "15px",
           }}
         >
-          4.5
+          <Rating name="read-only" value={avgRate} readOnly />
         </p>
-        <p></p>
-        <Badge bg={badgeStyle[0]} style={{ fontSize: "20px" }}>
-          수덕전
+
+        <Badge bg={badgeStyle} style={{ fontSize: "20px" }}>
+          <BadgeName />
         </Badge>
       </div>
     </div>
   );
+
+  function BadgeName() {
+    var restaurant = getData.restaurant;
+    switch (restaurant) {
+      case "suduk":
+        setbadgeStyle("success");
+        return "수덕전";
+      case "tech":
+        setbadgeStyle("warning");
+        return "정보관";
+      case "dormitory":
+        setbadgeStyle("danger");
+        return "기숙사식당";
+      default:
+        return null;
+    }
+  }
 }
 
 export default ReviewHeader;
