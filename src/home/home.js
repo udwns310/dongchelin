@@ -1,14 +1,12 @@
-import Cards from './Cards.js';
-import TitlebarImageList from './ActionAreaCard.js';
-
+import Info from './Info.js';
+import ActionAreaCard from './ActionAreaCard.js';
+import Navtitle from './navtitle.js';
 function Home() {
     return (
         <div>
-            {/* <Navibar/> */}
-            <Cards />
-
-            {/* <Example /> */}
-            <TitlebarImageList />
+            <Navtitle />
+            <Info />
+            <ActionAreaCard />
         </div>
     );
 }
