@@ -5,10 +5,9 @@ import school from './image/school.jpg';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-function Cards() {
+function Info() {
     var title = '오늘의 학식';
-    var location = ['수덕전', '정보공학관', '기숙사식당', '교직원식당'];
-
+    var location = ['수덕전', '정보공학관', '기숙사식당'];
     const CardStyle = {
         margin: '2rem',
         height: '100%',
@@ -34,15 +33,16 @@ function Cards() {
     if (menus.suduk) {
         return (
             <div>
-                <button
-                    onClick={() => {
-                        localStorage.removeItem('loginToken');
-                    }}
-                >
-                    토큰 없애기{' '}
-                </button>
                 <div>
-                    <h2 style={{ padding: '10px', textAlign: 'left', display: 'inline-block' }}>학식 정보</h2>
+                    <h2
+                        style={{
+                            padding: '10px',
+                            textAlign: 'left',
+                            display: 'inline-block',
+                        }}
+                    >
+                        학식 정보
+                    </h2>
                     {/*수덕전*/}
                     <CardGroup style={divStyle}>
                         <Card style={CardStyle}>
@@ -89,4 +89,4 @@ function Cards() {
     }
 }
 
-export default Cards;
+export default Info;

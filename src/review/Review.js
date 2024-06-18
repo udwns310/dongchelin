@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import { Card, Carousel, Col, Row, Modal, Input } from 'antd';
 import Rating from '@mui/material/Rating';
-import ReviewCard from './ReviewCard';
+import ReviewCard from '../components/ReviewCard';
 
 const contentStyle = {
     height: '300px',
