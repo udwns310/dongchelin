@@ -40,7 +40,7 @@ function Rank() {
   };
   //메뉴 id
   const handleClickMenu = (menu_id) => {
-    navigate(`/reviews/${menu_id}`);
+    navigate(`/review/${menu_id}`);
   };
 
   useEffect(() => {
@@ -101,10 +101,10 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectRestaurant === "dormitory" ? "white" : "#2F7BEE",
+                      selectRestaurant === "dormitory" ? "white" : "#DC3545",
                     color:
-                      selectRestaurant === "dormitory" ? "#2F7BEE" : "white",
-                    border: "solid 2px #2F7BEE",
+                      selectRestaurant === "dormitory" ? "#DC3545" : "white",
+                    border: "solid 2px #DC3545",
                   }}
                   className={`restau ${
                     selectRestaurant === "dormitory" ? "selected" : ""
@@ -216,13 +216,13 @@ function Rank() {
                 }}
               >
                 <Col className="numR">{index + 1}</Col>
-                <Col>{item.name}</Col> {/* 메뉴명 */}
-                <Col>
+                <Col className="numR">{item.name}</Col> {/* 메뉴명 */}
+                <Col className="numR">
                   {item.restaurant === "suduk" && "수덕전"}
                   {item.restaurant === "tech" && "정보관"}
                   {item.restaurant === "dormitory" && "기숙사 식당"}
                 </Col>
-                <Col>{item.avgRate}</Col> {/* 별점 */}
+                <Col className="numR">{item.avgRate}</Col> {/* 별점 */}
               </Row>
             ))}
           </Col>
