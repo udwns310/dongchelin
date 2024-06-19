@@ -98,13 +98,13 @@
 .ctgNum {
     padding: 15px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 /* 등수 숫자 */
 .numR {
     padding: 10px;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 /* 랭킹 페이지 제목 */
@@ -116,12 +116,12 @@
 
 /* 첫 번째 컬럼 태그 */
 #c1R {
-    border-right: solid black 1px;
+    border-right: solid gray 2px;
 }
 
 /* 첫 번째 로우 태그 */
 #rowR {
-    border-top: solid black 1px;
+    border-top: solid gray 2px;
 }
 
 /* 좌상단 식당 구분 컬럼 div */
@@ -131,5 +131,5 @@
 
 /* 좌하단 종류 구분 div */
 #kindR {
-    border-top: solid black 1px;
+    border-top: solid gray 2px;
 }

@@ -57,6 +57,7 @@ function Rank() {
             padding: "10px",
             textAlign: "left",
             display: "inline-block",
+            fontSize: "35px",
           }}
         >
           메뉴 랭킹
@@ -101,10 +102,10 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectRestaurant === "dormitory" ? "white" : "#2F7BEE",
+                      selectRestaurant === "dormitory" ? "white" : "#DC3545",
                     color:
-                      selectRestaurant === "dormitory" ? "#2F7BEE" : "white",
-                    border: "solid 2px #2F7BEE",
+                      selectRestaurant === "dormitory" ? "#DC3545" : "white",
+                    border: "solid 2px #DC3545",
                   }}
                   className={`restau ${
                     selectRestaurant === "dormitory" ? "selected" : ""
@@ -121,9 +122,9 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectCategory === "korean" ? "gray" : "#EAEAEA",
-                    color: selectCategory === "korean" ? "white" : "black",
-                    border: "solid 2px #EAEAEA",
+                      selectCategory === "korean" ? "white" : "#79ABFF",
+                    color: selectCategory === "korean" ? "#79ABFF" : "white",
+                    border: "solid 2px #79ABFF",
                   }}
                   className={`categorys ${
                     selectCategory === "korean" ? "selected" : ""
@@ -137,9 +138,9 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectCategory === "western" ? "gray" : "#EAEAEA",
-                    color: selectCategory === "western" ? "white" : "black",
-                    border: "solid 2px #EAEAEA",
+                      selectCategory === "western" ? "white" : "#F2CB61",
+                    color: selectCategory === "western" ? "#F2CB61" : "white",
+                    border: "solid 2px #F2CB61",
                   }}
                   className={`categorys ${
                     selectCategory === "western" ? "selected" : ""
@@ -153,9 +154,9 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectCategory === "japanese" ? "gray" : "#EAEAEA",
-                    color: selectCategory === "japanese" ? "white" : "black",
-                    border: "solid 2px #EAEAEA",
+                      selectCategory === "japanese" ? "white" : "#F15F5F",
+                    color: selectCategory === "japanese" ? "#F15F5F" : "white",
+                    border: "solid 2px #F15F5F",
                   }}
                   className={`categorys ${
                     selectCategory === "japanese" ? "selected" : ""
@@ -169,9 +170,9 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectCategory === "chinese" ? "gray" : "#EAEAEA",
-                    color: selectCategory === "chinese" ? "white" : "black",
-                    border: "solid 2px #EAEAEA",
+                      selectCategory === "chinese" ? "white" : "#FFA873",
+                    color: selectCategory === "chinese" ? "#FFA873" : "white",
+                    border: "solid 2px #FFA873",
                   }}
                   className={`categorys ${
                     selectCategory === "chinese" ? "selected" : ""
@@ -185,9 +186,9 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectCategory === "snack" ? "gray" : "#EAEAEA",
-                    color: selectCategory === "snack" ? "white" : "black",
-                    border: "solid 2px #EAEAEA",
+                      selectCategory === "snack" ? "white" : "#D1B2FF",
+                    color: selectCategory === "snack" ? "#D1B2FF" : "white",
+                    border: "solid 2px #D1B2FF",
                   }}
                   className={`categorys ${
                     selectCategory === "snack" ? "selected" : ""
@@ -216,6 +217,7 @@ function Rank() {
               >
                 <Col className="numR">{index + 1}</Col>
                 <Col
+                  className="numR"
                   onClick={() => {
                     handleClickMenu(item.id);
                   }}
@@ -223,12 +225,12 @@ function Rank() {
                   {item.name}
                 </Col>{" "}
                 {/* 메뉴명 */}
-                <Col>
+                <Col className="numR">
                   {item.restaurant === "suduk" && "수덕전"}
                   {item.restaurant === "tech" && "정보관"}
                   {item.restaurant === "dormitory" && "기숙사 식당"}
                 </Col>
-                <Col>{item.avgRate}</Col> {/* 별점 */}
+                <Col className="numR">{item.avgRate}</Col> {/* 별점 */}
               </Row>
             ))}
           </Col>
