@@ -15,7 +15,7 @@ export default function ActionCards(props) {
     const navigate = useNavigate();
     const navigateToReview = () => {
         navigate('/review', {
-            state: { title: props.title, id: props.id, food_img: props.food_img, avgRate: props.avgRate },
+            state: { title: props.name, id: props.id, food_img: props.food_img, avgRate: props.avgRate },
         });
     };
 
