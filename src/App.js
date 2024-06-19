@@ -7,6 +7,7 @@ import SignIn from "./components/SignIn.js";
 import SignUp from "./components/SignUp.js";
 import Review from "./review/Review.js";
 import Rank from './rank/ranking.js'
+import Navtitle from './home/navtitle.js'
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
           path="/"
           element={
             <div>
+              <Navtitle/>
               <Home />
               <FixedBottomNavigation />
             </div>
@@ -24,6 +26,7 @@ function App() {
           path="/login"
           element={
             <div>
+              <Navtitle/>
               <SignIn />
               <FixedBottomNavigation />
             </div>
@@ -33,6 +36,7 @@ function App() {
           path="/register"
           element={
             <div>
+              <Navtitle/>
               <SignUp />
               <FixedBottomNavigation />
             </div>
@@ -42,6 +46,7 @@ function App() {
           path="/review"
           element={
             <div>
+              <Navtitle/>
               <Review />
               <FixedBottomNavigation />
             </div>
@@ -51,6 +56,7 @@ function App() {
           path="/ranking"
           element={
             <div>
+              <Navtitle/>
               <Rank />
               <FixedBottomNavigation />
             </div>

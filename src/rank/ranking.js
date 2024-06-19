@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import axios from 'axios';
-import Navtitle from '../home/navtitle.js';
 import { useNavigate } from 'react-router-dom';
 
 function Rank() {
@@ -51,7 +50,7 @@ function Rank() {
 
     return (
         <div>
-            <Navtitle />
+       
             <Container>
                 <div style={{ padding: '10px' }}></div>
                 <h2
