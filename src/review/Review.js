@@ -41,8 +41,8 @@ function Review() {
     };
     const location = useLocation();
     const food_id = location.state.id;
-    const food_img = location.state.food_img;
-    const avgRate = location.state.avgRate;
+    // const food_img = location.state.food_img;
+    // const avgRate = location.state.avgRate;
     const [getData, setgetData] = useState([]);
 
     useEffect(() => {
@@ -77,52 +77,55 @@ function Review() {
                 console.log(err);
             });
     };
-
-    return (
-        <div>
-            {contextHolder}
-            <ReviewHeader
-                food_id={food_id}
-                food_img={food_img}
-                avgRate={avgRate}
-                title={getData.name}
-                restaurant={getData.restaurant}
-            />
-
+    if (getData.avgRate) {
+        return (
             <div>
-                <h3 style={{ float: 'left' }}>메뉴 평가</h3>
-            </div>
+                {contextHolder}
+                <ReviewHeader
+                    food_id={food_id}
+                    food_img={getData.name}
+                    avgRate={getData.avgRate}
+                    title={getData.name}
+                    restaurant={getData.restaurant}
+                />
 
-            <div className="mb-2" style={{ float: 'right' }}>
-                <Button variant="warning" size="lg" onClick={loginCheck}>
-                    리뷰쓰기
-                </Button>
-                <Modal
-                    title="리뷰 작성"
-                    centered
-                    open={open}
-                    onOk={() => {
-                        setOpen(false);
-                        onwriteReview();
-                    }}
-                    onCancel={() => setOpen(false)}
-                    width={1000}
-                    okText="확인"
-                    cancelText="취소"
-                >
-                    <Rating
-                        name="half-rating"
-                        value={value}
-                        onChange={(e, newValue) => {
-                            setValue(newValue);
+                <div>
+                    <h3 style={{ float: 'left' }}>메뉴 평가</h3>
+                </div>
+
+                <div className="mb-2" style={{ float: 'right' }}>
+                    <Button variant="warning" size="lg" onClick={loginCheck}>
+                        리뷰쓰기
+                    </Button>
+                    <Modal
+                        title="리뷰 작성"
+                        centered
+                        open={open}
+                        onOk={() => {
+                            setOpen(false);
+                            onwriteReview();
                         }}
-                    />
-                    <TextArea rows={4} onChange={onReviewChange} style={{ resize: 'none' }} />
-                </Modal>
+                        onCancel={() => setOpen(false)}
+                        width={1000}
+                        okText="확인"
+                        cancelText="취소"
+                    >
+                        <Rating
+                            name="half-rating"
+                            value={value}
+                            onChange={(e, newValue) => {
+                                setValue(newValue);
+                            }}
+                        />
+                        <TextArea rows={4} onChange={onReviewChange} style={{ resize: 'none' }} />
+                    </Modal>
+                </div>
+                <ReviewCard reviews={getData.reviews} />
             </div>
-            <ReviewCard reviews={getData.reviews} />
-        </div>
-    );
+        );
+    } else {
+        return null;
+    }
 }
 
 export default Review;

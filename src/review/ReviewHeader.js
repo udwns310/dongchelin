@@ -23,6 +23,7 @@ function ReviewHeader(props) {
     const avgRate = props.avgRate;
     const title = props.title;
     const restaurant = props.restaurant;
+
     return (
         <div>
             <Carousel autoplay>

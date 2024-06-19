@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import axios from "axios";
-import Navtitle from "../home/navtitle.js";
 import { useNavigate } from "react-router-dom";
 
 function Rank() {
@@ -11,7 +10,7 @@ function Rank() {
   const [selectRestaurant, setSelectRestaurant] = useState(null);
   const [selectCategory, setSelectCategory] = useState(null);
   const navigate = useNavigate();
-
+  const nameInfo = useRef();
   const fetchData = (restaurant, category) => {
     const url = "https://dongchelin.dev-ssu.com/menu/rank"; //메뉴 검색 API
     const params = {};
@@ -39,8 +38,10 @@ function Rank() {
     setSelectCategory(selectCategory === category ? null : category);
   };
   //메뉴 id
-  const handleClickMenu = (menu_id) => {
-    navigate(`/review/${menu_id}`);
+  const handleClickMenu = (name) => {
+    navigate(`/review`, {
+      state: { id: name },
+    });
   };
 
   useEffect(() => {
@@ -49,7 +50,6 @@ function Rank() {
 
   return (
     <div>
-      <Navtitle />
       <Container>
         <div style={{ padding: "10px" }}></div>
         <h2
@@ -101,10 +101,10 @@ function Rank() {
                 <button
                   style={{
                     backgroundColor:
-                      selectRestaurant === "dormitory" ? "white" : "#DC3545",
+                      selectRestaurant === "dormitory" ? "white" : "#2F7BEE",
                     color:
-                      selectRestaurant === "dormitory" ? "#DC3545" : "white",
-                    border: "solid 2px #DC3545",
+                      selectRestaurant === "dormitory" ? "#2F7BEE" : "white",
+                    border: "solid 2px #2F7BEE",
                   }}
                   className={`restau ${
                     selectRestaurant === "dormitory" ? "selected" : ""
@@ -212,17 +212,23 @@ function Rank() {
                 key={index}
                 onClick={() => {
                   console.log(`Row clicked ${index + 1}`);
-                  handleClickMenu(item.id);
                 }}
               >
                 <Col className="numR">{index + 1}</Col>
-                <Col className="numR">{item.name}</Col> {/* 메뉴명 */}
-                <Col className="numR">
+                <Col
+                  onClick={() => {
+                    handleClickMenu(item.id);
+                  }}
+                >
+                  {item.name}
+                </Col>{" "}
+                {/* 메뉴명 */}
+                <Col>
                   {item.restaurant === "suduk" && "수덕전"}
                   {item.restaurant === "tech" && "정보관"}
                   {item.restaurant === "dormitory" && "기숙사 식당"}
                 </Col>
-                <Col className="numR">{item.avgRate}</Col> {/* 별점 */}
+                <Col>{item.avgRate}</Col> {/* 별점 */}
               </Row>
             ))}
           </Col>
