@@ -79,17 +79,27 @@
 }
 /* 메뉴 랭킹 페이지 목록 */
 .rankCtg {
+    margin-top: 10px;
     padding: 15px;
     font-size: 25px;
     font-weight: bold;
 }
 
 /* 식당 종류, 음식 종류 */
-.restau,
-.categorys {
-    padding: 10px;
+.restau,.categorys{
+    padding: 10px 20px;
+    margin: 10px;
     font-size: 20px;
+    border-radius: 16px;
+    width: 150px;
 }
+
+/* .categorys {
+    padding : 15px 0px 15px 0px;
+    margin: 10px;
+    font-size: 20px;
+    border : solid black 1px;
+} */
 
 /*랭킹 순위 분류 목록*/
 .ctgNum {
@@ -104,7 +114,7 @@
 
 /* 랭킹 페이지 제목 */
 #titleR {
-    padding: 30px;
+    padding-top: 30px;
     font-size: 30px;
     font-weight: bold;
 }
