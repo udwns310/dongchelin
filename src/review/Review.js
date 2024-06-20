@@ -72,6 +72,7 @@ function Review() {
             )
             .then(function (response) {
                 console.log(response, '성공');
+                
             })
             .catch(function (err) {
                 console.log(err);
