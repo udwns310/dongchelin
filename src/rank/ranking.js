@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,7 +10,6 @@ function Rank() {
     const [selectRestaurant, setSelectRestaurant] = useState(null);
     const [selectCategory, setSelectCategory] = useState(null);
     const navigate = useNavigate();
-    const nameInfo = useRef();
     const fetchData = (restaurant, category) => {
         const url = 'https://dongchelin.dev-ssu.com/menu/rank'; //메뉴 검색 API
         const params = {};
