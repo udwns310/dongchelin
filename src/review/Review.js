@@ -55,7 +55,7 @@ function Review() {
             .catch(function (err) {
                 console.log(err);
             });
-    }, []);
+    });
     const onwriteReview = () => {
         axios
             .post(
@@ -72,6 +72,8 @@ function Review() {
             )
             .then(function (response) {
                 console.log(response, '성공');
+                window.location.reload();
+                
             })
             .catch(function (err) {
                 console.log(err);
